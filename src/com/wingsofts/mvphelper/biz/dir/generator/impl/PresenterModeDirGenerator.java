@@ -21,16 +21,18 @@ public class PresenterModeDirGenerator extends BaseDirGenerator {
     public void start() {
         generateDirsBasedOnSuffix("presenter");
 
-        new JavaModeFileGenerator(myProject, myContractDir, myModelDir, myPresenterDir, myPrefix).start();
+        new JavaModeFileGenerator(myProject, myContractDir, myModelDir, myViewDir, myPresenterDir, myPrefix).start();
     }
 
     @Override
     protected void onGenerateForkDirs(@NotNull String subPackage) {
         String prefix = subPackage.replace("presenter", "");
         String subPackageM = prefix + "model";
+        String subPackageV = prefix + "view";
         String subPackageC = prefix + "contract";//if prefix exist.
         myContractDir = moveDirPointer(myCurrentDir, subPackageC);
         myModelDir = moveDirPointer(myCurrentDir, subPackageM);
+        myViewDir = moveDirPointer(myCurrentDir, subPackageV);
         myPresenterDir = myCurrentDir.findSubdirectory(subPackage);
     }
 }

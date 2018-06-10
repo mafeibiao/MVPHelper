@@ -24,6 +24,7 @@ abstract class BaseFileGenerator implements FileGenerator {
     protected Project myProject;//current java project
     protected PsiDirectory myContractDir;//the contract package dir
     protected PsiDirectory myModelDir;//the model package dir
+    protected PsiDirectory myViewDir;//the model package dir
     protected PsiDirectory myPresenterDir;//the presenter package dir
     protected String myPrefix;//the prefix used to identify each other
     protected PsiElementFactory myFactory;//the factory used to generate interface/class/innerClass/classReference
@@ -32,10 +33,11 @@ abstract class BaseFileGenerator implements FileGenerator {
     protected GlobalSearchScope myProjectScope;//just this project is enough
     private MvpConfigurable myConfig;
 
-    BaseFileGenerator(Project project, PsiDirectory contractDir, PsiDirectory modelDir, PsiDirectory presenterDir, String prefix) {
+    BaseFileGenerator(Project project, PsiDirectory contractDir, PsiDirectory modelDir, PsiDirectory viewDir, PsiDirectory presenterDir, String prefix) {
         this.myProject = project;
         this.myContractDir = contractDir;
         this.myModelDir = modelDir;
+        this.myViewDir = viewDir;
         this.myPresenterDir = presenterDir;
         this.myPrefix = prefix;
         myShortNamesCache = PsiShortNamesCache.getInstance(project);

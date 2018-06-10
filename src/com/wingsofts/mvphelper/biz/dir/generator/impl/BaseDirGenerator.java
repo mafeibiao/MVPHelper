@@ -29,6 +29,7 @@ abstract class BaseDirGenerator implements DirGenerator {
     protected PsiDirectory myCurrentDir;//the base line of dir generation
     protected PsiDirectory myContractDir;
     protected PsiDirectory myModelDir;
+    protected PsiDirectory myViewDir;
     protected PsiDirectory myPresenterDir;
     protected String myPrefix;
 
@@ -88,6 +89,7 @@ abstract class BaseDirGenerator implements DirGenerator {
                 if (isForkDirGenerated) {// and the 'presenter' and 'model' dir already generated,
                     myContractDir = moveDirPointer(myContractDir, subPackage);
                     myModelDir = moveDirPointer(myModelDir, subPackage);
+                    myViewDir = moveDirPointer(myViewDir, subPackage);
                     myPresenterDir = moveDirPointer(myPresenterDir, subPackage);
                 }// but the 'presenter' and 'model' dir has not been generated,
             } else {
