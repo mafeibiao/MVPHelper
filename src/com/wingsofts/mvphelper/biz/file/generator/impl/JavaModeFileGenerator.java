@@ -51,10 +51,7 @@ public class JavaModeFileGenerator extends BaseFileGenerator {
             view.getModifierList().setModifierProperty("public", false);
             view.getExtendsList().add(myFactory.createReferenceElementByFQClassName("ILAMvpView", myProjectScope));
             presenter.getModifierList().setModifierProperty("public", false);
-            PsiJavaCodeReferenceElement ilaMvpPresenter = myFactory.createReferenceElementByFQClassName("ILAMvpPresenter", myProjectScope);
-
-            presenter.getExtendsList().add(ilaMvpPresenter);
-
+            presenter.getExtendsList().add(myFactory.createReferenceElementByFQClassName("ILAMvpPresenter", myProjectScope));
             psiClass.add(model);
             psiClass.add(view);
             psiClass.add(presenter);
